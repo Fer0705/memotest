@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import MemoryGame from './MemoryGame';
 import CounterGame from './CounterGame';
 
@@ -13,13 +13,17 @@ export default function App() {
   const renderGameModeSelection = () => (
     <View style={styles.container}>
       <View style={styles.welcomeContainer}>
+      <Image
+          source={{ uri: 'https://res.cloudinary.com/dldclv2km/image/upload/v1692898911/animalMemory_gmodrs.jpg' }} 
+          style={styles.headerImage}
+        />
         <Text style={styles.welcome}>¡Bienvenido a Memotest!</Text>
         <Text style={styles.description}>El desafío de la memoria te espera</Text>
         <TouchableOpacity
           style={styles.button}
           onPress={() => handleStartGame('tradition')}
         >
-          <Text style={styles.buttonText}>Modalidad Tradicional</Text>
+          <Text style={styles.buttonTradicionalText}>Modalidad Tradicional</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
@@ -54,6 +58,12 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
   },
+  headerImage: {
+    width: 200, 
+    height: 100, 
+    marginBottom: 10,
+    borderRadius: 8,
+  },
   welcome: {
     fontSize: 28,
     color: '#333',
@@ -71,9 +81,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#62b8ff',
     borderRadius: 5,
     marginBottom: 10,
+    borderRadius: 10,
   },
   buttonText: {
     fontSize: 22,
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight:'400'
+  },
+  buttonTradicionalText: {
+    fontSize: 22.7,
     color: '#fff',
     textAlign: 'center',
     fontWeight:'400'
