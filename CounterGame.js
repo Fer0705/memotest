@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   startButtonText: {
-    color: '#FFFFFF',
+    color: '#000',
     fontSize: 20,
     fontWeight: 'bold',
   },
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   closeButtonText: {
-    color: '#FFFFFF',
+    color: '#FFF',
     fontSize: 24,
     fontWeight: 'bold',
   },

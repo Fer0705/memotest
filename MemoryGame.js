@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Modal } from 'react-native';
 
+
 const MemoryGame = () => {
   const animals = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐵'];
   const [cards, setCards] = useState([]);
@@ -128,7 +129,7 @@ const MemoryGame = () => {
     }
     return '';
   };
-  
+
 
   return (
     <View style={styles.container}>
@@ -215,8 +216,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   restartButtonText: {
-    fontSize: 18,
-    color: '#fff',
+    fontSize: 20,
+    color: '#000',
+    fontWeight: '600'
   },
   congratulationsContainer: {
     flex: 1,

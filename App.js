@@ -85,15 +85,15 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 22,
-    color: '#fff',
+    color: '#000',
     textAlign: 'center',
-    fontWeight:'400'
+    fontWeight:'600'
   },
   buttonTradicionalText: {
     fontSize: 22.7,
-    color: '#fff',
+    color: '#000',
     textAlign: 'center',
-    fontWeight:'400'
+    fontWeight:'600'
   },
 });
 
