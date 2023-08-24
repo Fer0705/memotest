@@ -189,11 +189,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   card: {
-    width: 80,
-    height: 80,
+    width: 60,
+    height: 60,
     backgroundColor: '#62b8ff',
     borderRadius: 8,
     margin: 8,
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   restartButtonText: {
-    fontSize: 20,
+    fontSize: 16,
     color: '#000',
     fontWeight: '600'
   },
