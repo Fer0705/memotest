@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Modal } from 'react-native';
 
-const CounterGame = () => {
+const CounterGame = ({ navigateBack }) => {
   const animals = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐵'];
   const [cards, setCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
@@ -142,6 +142,9 @@ const CounterGame = () => {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={navigateBack} style={styles.button}>
+        <Text style={styles.buttonText}>Volver</Text>
+      </TouchableOpacity>
       <View style={styles.cardsContainer}>
         {cards.map((card) => (
           <TouchableOpacity
@@ -215,7 +218,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    marginBottom: 20,
+    marginTop: 20,
   },
   card: {
     width: 80,
@@ -234,6 +237,17 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: 32,
+  },
+  button: {
+    backgroundColor: '#62b8ff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: 'black', 
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   startButton: {
     marginTop: 10,

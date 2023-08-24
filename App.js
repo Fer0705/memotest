@@ -9,7 +9,9 @@ export default function App() {
   const handleStartGame = (mode) => {
     setGameMode(mode);
   };
-
+  const navigateBack = () => {
+    setGameMode(null);
+  };
   const renderGameModeSelection = () => (
     <View style={styles.container}>
       <View style={styles.welcomeContainer}>
@@ -37,9 +39,11 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {gameMode === 'tradition' && <MemoryGame />}
-      {gameMode === 'counter' && <CounterGame />}
+          <View style={styles.container}>
+      {gameMode === 'tradition' && <MemoryGame navigateBack={navigateBack} />}
+      {gameMode === 'counter' && <CounterGame navigateBack={navigateBack} />}
       {!gameMode && renderGameModeSelection()}
+    </View>
     </View>
   );
 }

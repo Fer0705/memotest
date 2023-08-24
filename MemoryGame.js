@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Modal } from 'react-native';
 
-
-const MemoryGame = () => {
+const MemoryGame = ({ navigateBack }) => {
   const animals = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐵'];
   const [cards, setCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
@@ -133,6 +132,9 @@ const MemoryGame = () => {
 
   return (
     <View style={styles.container}>
+   <TouchableOpacity onPress={navigateBack} style={styles.button}>
+        <Text style={styles.buttonText}>Volver</Text>
+      </TouchableOpacity>
       <View style={styles.cardsContainer}>
         {cards.map((card) => (
           <TouchableOpacity
@@ -192,9 +194,9 @@ const styles = StyleSheet.create({
   card: {
     width: 80,
     height: 80,
-    borderRadius: 8,
     backgroundColor: '#62b8ff',
-    margin: 10,
+    borderRadius: 8,
+    margin: 8,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -207,6 +209,17 @@ const styles = StyleSheet.create({
   cardText: {
     fontSize: 32,
     color: '#000',
+  },
+  button: {
+    backgroundColor: '#62b8ff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: 'black', 
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   restartButton: {
     marginTop: 20,
