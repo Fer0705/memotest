@@ -117,10 +117,18 @@ const MemoryGame = () => {
       const elapsedTimeInSeconds = Math.floor((endTime - startTime) / 1000);
       const minutes = Math.floor(elapsedTimeInSeconds / 60);
       const seconds = elapsedTimeInSeconds % 60;
-      return `${minutes} minutos y ${seconds} segundos`;
+  
+      if (minutes === 1) {
+        return `1 minuto y ${seconds} segundos`;
+      } else if (minutes > 1) {
+        return `${minutes} minutos y ${seconds} segundos`;
+      } else {
+        return `${seconds} segundos`;
+      }
     }
     return '';
   };
+  
 
   return (
     <View style={styles.container}>
@@ -217,7 +225,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   congratulationsText: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#fff',
     marginBottom: 10,
@@ -235,7 +243,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   closeButtonText: {
-    fontSize: 16,
+    fontSize: 20,
     color: '#fff',
   },
 });

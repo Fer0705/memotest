@@ -103,6 +103,7 @@ const CounterGame = () => {
     setStartTime(null);
     setEndTime(null);
     setTimeLeft(60);
+    setIsTimerCritical(false)
     generateCards();
   };
 
@@ -166,11 +167,11 @@ const CounterGame = () => {
           <Text style={styles.startButtonText}>Comenzar</Text>
         </TouchableOpacity>
       )}
-      {endTime && (
+      {/* {endTime && (
         <TouchableOpacity style={styles.restartButton} onPress={restartGame}>
           <Text style={styles.restartButtonText}>Jugar de nuevo</Text>
         </TouchableOpacity>
-      )}
+      )} */}
       <Modal visible={showCongratulations} animationType="fade" transparent>
         <View style={styles.congratulationsContainer}>
           <Text style={styles.congratulationsText}>{showTimeUp ? 'Tiempo agotado' : '¡Felicitaciones!'}</Text>
@@ -187,7 +188,7 @@ const CounterGame = () => {
       {showTimeUp && !endTime && (
         <Modal visible={showTimeUp} animationType="fade" transparent>
           <View style={styles.congratulationsContainer}>
-            <Text style={styles.congratulationsText}>Tiempo agotado</Text>
+            <Text style={styles.loserText}>¡Tiempo agotado!</Text>
             <TouchableOpacity style={styles.closeButton} onPress={restartGame}>
               <Text style={styles.closeButtonText}>Jugar de nuevo</Text>
             </TouchableOpacity>
@@ -235,19 +236,20 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   startButton: {
-    backgroundColor: '#4CAF50',
+    marginTop: 10,
+    marginBottom:10,
     paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 24,
-    marginBottom: 20,
+    paddingHorizontal: 20,
+    backgroundColor: '#66b8ff',
+    borderRadius: 5,
   },
   startButtonText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   restartButton: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#62b8ff',
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 24,
@@ -260,30 +262,36 @@ const styles = StyleSheet.create({
   },
   congratulationsContainer: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
     alignItems: 'center',
     justifyContent: 'center',
   },
   congratulationsText: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#FFFFFF',
+    color: '#fff',
     marginBottom: 12,
   },
   congratulationsSubText: {
-    fontSize: 18,
-    color: '#FFFFFF',
+    fontSize: 22,
+    color: '#fff',
     marginBottom: 24,
   },
+  loserText:{
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#FFF',
+    marginBottom: 30,
+  },
   closeButton: {
-    backgroundColor: '#4CAF50',
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 24,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: '#62b8ff',
+    borderRadius: 5,
   },
   closeButtonText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: 'bold',
   },
   timerContainer: {
@@ -291,11 +299,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   timerText: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'white'
   },
   timerCriticalText: {
+    fontSize: 24,
     color: '#FF0000',
   },
 });

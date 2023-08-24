@@ -11,20 +11,23 @@ export default function App() {
   };
 
   const renderGameModeSelection = () => (
-    <View style={styles.welcomeContainer}>
-      <Text style={styles.welcome}>¡Bienvenido!</Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => handleStartGame('tradition')}
-      >
-        <Text style={styles.buttonText}>Modalidad Tradicional</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => handleStartGame('counter')}
-      >
-        <Text style={styles.buttonText}>Modalidad Contrarreloj</Text>
-      </TouchableOpacity>
+    <View style={styles.container}>
+      <View style={styles.welcomeContainer}>
+        <Text style={styles.welcome}>¡Bienvenido a Memotest!</Text>
+        <Text style={styles.description}>El desafío de la memoria te espera</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleStartGame('tradition')}
+        >
+          <Text style={styles.buttonText}>Modalidad Tradicional</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleStartGame('counter')}
+        >
+          <Text style={styles.buttonText}>Modalidad Contrarreloj</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 
@@ -40,16 +43,26 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#113',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#113',
   },
+  
   welcomeContainer: {
     alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    padding: 20,
+    borderRadius: 10,
   },
   welcome: {
-    fontSize: 24,
-    color: '#fff',
+    fontSize: 28,
+    color: '#333',
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  description: {
+    fontSize: 18,
+    color: '#555',
     marginBottom: 20,
   },
   button: {
@@ -60,7 +73,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   buttonText: {
-    fontSize: 18,
+    fontSize: 22,
     color: '#fff',
+    textAlign: 'center',
+    fontWeight:'400'
   },
 });
+
